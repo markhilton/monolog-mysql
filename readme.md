@@ -10,7 +10,7 @@ MySQL driver for Laravel Monolog.
 To get the lastest version of Theme simply require it in your `composer.json` file.
 
 ~~~
-"markhilton/monolog-mysql": "v0.1"
+"markhilton/monolog-mysql": "dev-master"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
