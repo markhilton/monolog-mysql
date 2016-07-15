@@ -54,4 +54,4 @@ $app->configureMonologUsing(function($monolog) use($app) {
 
 Based on:
 
-- [MySQL](https://github.com/pedrofornaza/monolog-mysq)
+- [Pedro Fornaza] (https://github.com/pedrofornaza/monolog-mysql)
