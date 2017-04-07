@@ -4,13 +4,8 @@ MySQL driver for Laravel Monolog.
 
 ### Installation
 
-- [Packagist](https://packagist.org/packages/markhilton/monolog-mysql)
-- [GitHub](https://github.com/markhilton/monolog-mysql)
-
-To get the lastest version of Theme simply require it in your `composer.json` file.
-
 ~~~
-"markhilton/monolog-mysql": "dev-master"
+composer require markhilton/monolog-mysql
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.

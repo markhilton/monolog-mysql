@@ -5,12 +5,11 @@
     "homepage": "https://github.com/markhilton/monolog-mysql",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Mark Hilton",
-            "email": "nerd305@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Mark Hilton",
+        "email": "nerd305@gmail.com"
+    }],
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.5.9"
     },
