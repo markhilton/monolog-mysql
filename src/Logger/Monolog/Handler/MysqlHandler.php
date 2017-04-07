@@ -13,7 +13,7 @@ class MysqlHandler extends AbstractProcessingHandler
 
     public function __construct($level = Logger::DEBUG, $bubble = true)
     {
-        $this->table = env('DB_LOG_TABLE', 'logs');
+        $this->table      = env('DB_LOG_TABLE', 'logs');
         $this->connection = env('DB_LOG_CONNECTION', env('DB_CONNECTION', 'mysql'));
 
         parent::__construct($level, $bubble);
