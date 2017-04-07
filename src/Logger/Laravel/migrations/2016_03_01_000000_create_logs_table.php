@@ -22,10 +22,10 @@ class CreateLogsTable extends Migration
             $table->text('message');
             $table->text('context');
 
-            $table->int('remote_addr');
+            $table->integer('remote_addr');
             $table->string('user_agent');
             $table->string('session_id');
-            $table->int('created_by')->index();
+            $table->integer('created_by')->index();
 
             $table->dateTime('created_at');
         });

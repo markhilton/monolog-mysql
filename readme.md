@@ -15,14 +15,14 @@ Open up `config/app.php` and find the `providers` key.
 ~~~
 'providers' => array(
     // ...
-    'Logger\Laravel\Provider\MonologMysqlHandlerServiceProvider'
+    Logger\Laravel\Provider\MonologMysqlHandlerServiceProvider::class,
 );
 ~~~
 
-Publish config using artisan CLI.
+Publish config using Laravel Artisan CLI.
 
 ~~~
-php artisan config:publish markhilton/monolog-mysql
+php artisan vendor:publish
 ~~~
 
 Migrate tables.
@@ -33,11 +33,7 @@ php artisan migrate
 
 ## Usage
 
-~~~php
-Log::getMonolog()->pushHandler(new Logger\Monolog\Handler\MysqlHandler());
-~~~
-
-Or in `bootstrap/app.php`:
+In your application `bootstrap/app.php` add:
 
 ~~~php
 $app->configureMonologUsing(function($monolog) use($app) {
