@@ -9,7 +9,6 @@
         "name": "Mark Hilton",
         "email": "nerd305@gmail.com"
     }],
-    "minimum-stability": "stable",
     "require": {
         "php": ">=5.5.9"
     },
@@ -17,5 +16,6 @@
         "psr-0": {
             "Logger": "src/"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
