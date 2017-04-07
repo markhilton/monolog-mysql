@@ -16,16 +16,16 @@ class CreateLogsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->string('channel', 50)->index();
-            $table->string('level',   50)->index();
-            $table->string('level_name', 100);
+            $table->string('instance')->index();
+            $table->string('channel')->index();
+            $table->string('level')->index();
+            $table->string('level_name');
             $table->text('message');
             $table->text('context');
 
-            $table->integer('remote_addr');
+            $table->integer('remote_addr')->unsigned();
             $table->string('user_agent');
-            $table->string('session_id');
-            $table->integer('created_by')->index();
+            $table->integer('created_by')->nullable()->index();
 
             $table->dateTime('created_at');
         });

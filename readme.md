@@ -31,7 +31,7 @@ Migrate tables.
 php artisan migrate
 ~~~
 
-## Usage
+## Application Integration
 
 In your application `bootstrap/app.php` add:
 
@@ -40,6 +40,13 @@ $app->configureMonologUsing(function($monolog) use($app) {
     $monolog->pushHandler(new Logger\Monolog\Handler\MysqlHandler());
 });
 ~~~
+
+## Environment configuration
+
+If you wish to change default table name to write the log into or database connection use following definitions in your .env file
+
+DB_LOG_TABLE=logs
+DB_LOG_CONNECTION=mysql
 
 ## Credits
 
