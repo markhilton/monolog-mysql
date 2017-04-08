@@ -8,8 +8,6 @@ MySQL driver for Laravel Monolog.
 composer require markhilton/monolog-mysql
 ~~~
 
-You'll then need to run `composer install` to download it and have the autoloader updated.
-
 Open up `config/app.php` and find the `providers` key.
 
 ~~~
