@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateLogsTable extends Migration
@@ -13,7 +14,7 @@ class CreateLogsTable extends Migration
     {
         Schema::create(
             env('DB_LOG_TABLE', 'logs'),
-            function ($table) {
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
                 $table->bigIncrements('id');
