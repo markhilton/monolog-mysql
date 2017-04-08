@@ -1,6 +1,6 @@
 ## Laravel Monolog MySQL Handler.
 
-MySQL driver for Laravel Monolog.
+This package will log errors into MySQL database instead storage/log/laravel.log file.
 
 ### Installation
 
@@ -43,8 +43,10 @@ $app->configureMonologUsing(function($monolog) use($app) {
 
 If you wish to change default table name to write the log into or database connection use following definitions in your .env file
 
+~~~
 DB_LOG_TABLE=logs
 DB_LOG_CONNECTION=mysql
+~~~
 
 ## Credits
 
