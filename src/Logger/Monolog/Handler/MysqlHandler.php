@@ -21,10 +21,16 @@ class MysqlHandler extends AbstractProcessingHandler
 
     protected function write(array $record)
     {
+        $message = explode(': ', $record['message'], 2);
+
+        $body    = isset($message[1]) ? $message[1] : $message[0];
+        $process = isset($message[1]) ? $message[0] : null;
+
         $data = [
-            'instance'    => gethostname(), 
-            'channel'     => $record['channel'], 
-            'message'     => $record['message'],
+            'instance'    => gethostname(),
+            'message'     => $body,
+            'process'     => $process,
+            'channel'     => $record['channel'],
             'level'       => $record['level'],
             'level_name'  => $record['level_name'],
             'context'     => json_encode($record['context']),
@@ -36,5 +42,4 @@ class MysqlHandler extends AbstractProcessingHandler
 
         DB::connection($this->connection)->table($this->table)->insert($data);
     }
-
 }
