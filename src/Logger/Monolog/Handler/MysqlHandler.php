@@ -3,6 +3,7 @@
 namespace Logger\Monolog\Handler;
 
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 
@@ -21,6 +22,12 @@ class MysqlHandler extends AbstractProcessingHandler
 
     protected function write(array $record)
     {
+        $created_by = null;
+        
+        if (method_exists('Auth', 'id')) {
+            $created_by = Auth::id() > 0 ? Auth::id() : null;
+        }
+
         $message = explode(': ', $record['message'], 2);
 
         $body    = isset($message[1]) ? $message[1] : $message[0];
@@ -36,10 +43,12 @@ class MysqlHandler extends AbstractProcessingHandler
             'context'     => json_encode($record['context']),
             'remote_addr' => isset($_SERVER['REMOTE_ADDR'])     ? ip2long($_SERVER['REMOTE_ADDR']) : null,
             'user_agent'  => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT']      : null,
-            'created_by'  => \Auth::id() > 0 ? \Auth::id() : null,
+            'created_by'  => $created_by,
             'created_at'  => $record['datetime']->format('Y-m-d H:i:s')
         ];
 
-        DB::connection($this->connection)->table($this->table)->insert($data);
+        if (method_exists('DB', 'connection')) {
+            DB::connection($this->connection)->table($this->table)->insert($data);
+        }
     }
 }
