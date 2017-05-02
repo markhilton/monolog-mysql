@@ -20,7 +20,6 @@ class CreateLogsTable extends Migration
                 $table->bigIncrements('id');
                 $table->string('instance')->index();
                 $table->string('channel')->index();
-                $table->string('process')->index();
                 $table->string('level')->index();
                 $table->string('level_name');
                 $table->text('message');
