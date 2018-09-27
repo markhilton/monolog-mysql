@@ -29,7 +29,7 @@ Migrate tables.
 php artisan migrate
 ```
 
-## Application Integration (Laravel >= 5.5)
+## Application Integration (Laravel <= 5.5)
 
 In your application `bootstrap/app.php` add:
 
@@ -39,7 +39,7 @@ $app->configureMonologUsing(function($monolog) use($app) {
 });
 ```
 
-## Application Integration (Laravel <= 5.6)
+## Application Integration (Laravel >= 5.6)
 
 In your application `config/logging.php` add:
 
