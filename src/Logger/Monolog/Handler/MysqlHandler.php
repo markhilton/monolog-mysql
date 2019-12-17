@@ -20,7 +20,7 @@ class MysqlHandler extends AbstractProcessingHandler
         parent::__construct($level, $bubble);
     }
 
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         $data = [
             'instance'    => gethostname(),
