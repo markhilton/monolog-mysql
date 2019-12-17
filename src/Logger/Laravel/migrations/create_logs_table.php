@@ -22,8 +22,8 @@ class CreateLogsTable extends Migration
                 $table->string('channel')->index();
                 $table->string('level')->index();
                 $table->string('level_name');
-                $table->text('message');
-                $table->text('context');
+                $table->longText('message');
+                $table->longText('context');
 
                 $table->integer('remote_addr')->nullable()->unsigned();
                 $table->string('user_agent')->nullable();
