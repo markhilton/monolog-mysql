@@ -23,7 +23,7 @@ Publish config using Laravel Artisan CLI.
 php artisan vendor:publish
 ~~~
 
-Migrate tables.
+Migrate tables - you may want to [configure enviornment](#environment-configuration) beforehand.
 
 ~~~
 php artisan migrate
@@ -31,12 +31,21 @@ php artisan migrate
 
 ## Application Integration
 
-In your application `bootstrap/app.php` add:
+In your application `config/logging.php` add:
 
 ~~~php
-$app->configureMonologUsing(function($monolog) use($app) {
-    $monolog->pushHandler(new Logger\Monolog\Handler\MysqlHandler());
-});
+use Monolog\Handler\MysqlHandler;
+
+// ...
+
+'channels' => [
+    // ...
+    'mysql' => [
+        'driver' => 'monolog',
+        'handler' => MysqlHandler::class,
+        'level' => 'debug',
+    ],
+];
 ~~~
 
 ## Environment configuration
