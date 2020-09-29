@@ -34,7 +34,7 @@ php artisan migrate
 In your application `config/logging.php` add:
 
 ~~~php
-use Monolog\Handler\MysqlHandler;
+use Logger\Monolog\Handler\MysqlHandler;
 
 // ...
 

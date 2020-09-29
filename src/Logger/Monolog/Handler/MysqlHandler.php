@@ -1,6 +1,6 @@
 <?php
 
-namespace Monolog\Handler;
+namespace Logger\Monolog\Handler;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
