@@ -2,7 +2,7 @@
 
 namespace Logger\Monolog\Handler;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
@@ -20,7 +20,7 @@ class MysqlHandler extends AbstractProcessingHandler
         parent::__construct($level, $bubble);
     }
 
-    protected function write(array $record): void
+    protected function write(array $record) : void
     {
         $data = [
             'instance'    => gethostname(),
